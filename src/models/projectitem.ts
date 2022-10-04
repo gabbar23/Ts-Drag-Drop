@@ -1,8 +1,8 @@
-
 import { Componenet } from "../Component/component";
 import { autobind } from "../decorators/decorators";
 import { Draggable } from "./ddmodels";
 import { Project } from "./Project-projectstate-model";
+
 
 export class ProjectItem
   extends Componenet<HTMLLIElement, HTMLUListElement>
@@ -19,10 +19,12 @@ export class ProjectItem
     this.configureForm();
     this.renderContent();
   }
-  @autobind
+ @autobind
   dragStartHandler(event: DragEvent): void {
     event.dataTransfer?.setData("text/plain", this.project.id);
     event.dataTransfer!.effectAllowed = "move";
+    
+
   }
   @autobind
   dragEndHandler(event: DragEvent): void {
